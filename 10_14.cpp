@@ -3,21 +3,26 @@
 int main()
 {
 // (10) RAW - string - рядки в C++ дозволяють записувати рядки без необхідності екранізації спеціальних символів (наприклад, лапок, слешів тощо). Це зручно, коли потрібно включити в рядок текст з великою кількістю спецсимволів, виразів. 
+ //std::cout << R"(<head><h1>Hello</h1></head>)" << std::endl;
+//----------------------------------------------------------------------------------------------------------------------------
 // (12) змінні
     int myAge = 18; //тип_данних ім.я_змінної = значення
+    std::cout << "my age is " << myAge << std::endl;
+
     short num = 1000;
+    
     double a = 2.6;
+    
     char ch = '$';
+    
     bool c = 20;
     bool b = 0;
 
-    std::cout << "my age is " << myAge << std::endl;
-    //std::cout << R"(<head><h1>Hello</h1></head>)" << std::endl;
     std::cout << 3.5 + a << std::endl;
     std::cout << ch << std::endl;
     std::cout << c << std::endl;
     std::cout << b << std::endl;
-
+//----------------------------------------------------------------------------------------------------------------------------
 // (13) константи
     const double PI = 3.14;
     int number1 = 3;
@@ -26,13 +31,13 @@ int main()
     std::cout << "PI = " << PI << std::endl;
     std::cout << "PI + 2 = " << PI + 2 << std::endl;
     //задавати можна так як і змінні =, (), ={}, {}
-
+//----------------------------------------------------------------------------------------------------------------------------
     // (14) ввід інформації
     int number;
     std::cout << "Enter a number: ";
     std::cin >> number;
     std::cout << "you entered " << number << std::endl;
-
+//----------------------------------------------------------------------------------------------------------------------------
     int number3, number4;
     int sum;
     std::cout << "Enter first number: ";
@@ -41,11 +46,33 @@ int main()
     std::cin >> number4;
     sum = number3 + number4;  // Оператор присвоєння для обчислення суми
     std::cout << "Sum = " << sum << std::endl;
+//----------------------------------------------------------------------------------------------------------------------------
+    std::cout << "Enter the side of the square: ";
+    int side;
+    std::cin >> side;
+    int perimeter = side * 4;
+    std::cout << "Perimeter = " << perimeter << std::endl;
+    int area = side * side;
+    std::cout << "Area = " << area << std::endl;
 
+//----------------------------------------------------------------------------------------------------------------------------
+    std::cout << "Enter the radius of the circle: ";
+    double radius;
+    std::cin >> radius;
+
+    const double PI = 3.1415;
+    double diameter = radius * 2;
+    double area = PI * radius * radius;
+    double length = 2 * PI * radius;
+
+    std::cout << "----- Circle information--\n";
+    std::cout << "Radius = " << radius << std::endl;
+    std::cout << "Diameter = " << diameter << std::endl;
+    std::cout << "Area = " << area << std::endl;
+    std::cout << "Length = " << length << std::endl;
+    
     return 0;
 }
-
-
 
 /*Тип	            Розмір (байти)	    Діапазон
 signed char	            1	            -128 ... 127
