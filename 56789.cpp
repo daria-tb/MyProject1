@@ -1,7 +1,15 @@
 #include <iostream>
+//#include <Windows.h>
 
 int main()
 {
+    setlocale(LC_ALL, "rus");
+        std::cout << "Привет мир!" << std::endl;
+        
+    //SetConsoleOutputCP(1251);
+    //SetonsoleCP(1251);
+
+
     //cout - character output (вивід символів)
     std::cout << "Hello world" << std::endl;
     std::cout << std::endl;
