@@ -72,7 +72,7 @@ struct Piramide
 };
 
 void Show(const Piramide& piramide);
-void Set(Piramide& piramide);
+//void Set(Piramide& piramide);
 
 //описи структур в блоках
 /* void f()
@@ -99,7 +99,7 @@ int main()
     //MyStruct variable{ 'G', 10, 23.4 }; // a = 'G', b= 10, c = 23.4
     //MyStruct variable = { 'G', 10, 23.4 }; // a = 'G', b = 10, c = 23.4
 
-    MyStruct variable{ 'G', 10, 23.4 };
+    MyStruct variable = { 'G', 10, 23.4 };
 
     /* std::cout << "enter a: ";
     std::cin >> variable.a; */
@@ -201,10 +201,10 @@ ref.y = 234; */
     std::cout << "x = " << ref.x << std::endl; //бо ref.x = point1.x
     std::cout << "x = " << ref.y << std::endl;
 //-------- константи структур
-    const Point point2 { 10, 20 };  //можна тільки користуватись полями
+    Point point2 { 10, 20 };  //можна тільки користуватись полями
 
-    const Point* ptr = &point2; //можна окремо вибирати що буле константне, і можна не робити структуру константною, але якщо константна структура вказівник і посилання обовʼязково мають бути константними
-    const Point ref = point2;
+    Point* ptr2 = &point2; //можна окремо вибирати що буле константне, і можна не робити структуру константною, але якщо константна структура вказівник і посилання обовʼязково мають бути константними
+    Point ref2 = point2;
 // -------- масиви структур
     const int SIZE = 3;
 
@@ -250,7 +250,7 @@ for (int i = 0; 1 < SIZE; i++)
     };
 //передача структур у функ
     Piramide piramide{};
-    Set(piramide);
+    //Set(piramide);
     Show(piramide);
 
     return 0;
