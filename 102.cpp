@@ -55,7 +55,38 @@ public:
 
 int Tank::tanks = 0;
 int Tank::destroyedTanks = 0;
+//--------------
+/* 
+class Test
+{
+private:
+    int a = 1;
+    double b = 2.2;
+    char c = '!';
+    mutable bool isShowed = false; //поля можна змінювати в константних методах
 
+public:
+    void Enter()
+    {
+        std::cout << "Enter a: ";
+        std::cin >> a;
+        std::cout << "Enter b: ";
+        std::cin >> b;
+        std::cout << "Enter c: ";
+        std::cin >> c;
+    }
+
+
+    void Show() const
+    {
+        isShowed = true;
+        std::cout << "a = " << a << std::endl;
+        std::cout << "b = " << b << std::endl;
+        std::cout << "c = " << c << std::endl;
+
+    }
+}; */
+//------------
 int main()
 {
     std::cout << "Number of tanks: " << Tank::GetTanks() << std::endl;
@@ -83,6 +114,13 @@ int main()
     tank2 = nullptr;
 
     std::cout << "Number of tanks: " << Tank::GetTanks() << ", Destroyed: " << Tank::GetDestroyedTanks() << std::endl;
+//--------------------
+/*     const Test object;
+
+    object.Enter();
+    object.Show();
+    return 0; */
+
 
     return 0;
 }
