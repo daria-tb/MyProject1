@@ -154,18 +154,24 @@ public:
 
 //------------------------------
 
-class A {
+class A 
+{
 public:
-    A() { std::cout << "A::A()\n"; }
-    A(int a) { std::cout << "A::A(int a)\n"; }
-    A(int a, int b) { std::cout << "A::A(int a, int b)\n"; }
+    A() { std::cout << "A::A() \n"; }
+    A(int a) { std::cout << "A::A(int a) \n"; }
+    A(int a, int b) { std::cout << "A::A(int a, int b) \n"; }
+    A(const A& other) { std::cout << "A::A(const A& other) \n"; }
+    A(A&& other) { std::cout << "A::A(A&& other)\n"; }
 };
 
-class B : public A {
+class B : public A 
+{
 public:
-    B() { std::cout << "B::B()\n"; }
-    B(int a) { std::cout << "B::B(int a)\n"; }
-    B(int a, int b) { std::cout << "B::B(int a, int b)\n"; }
+    B() : A() { std::cout << "B::B() \n"; } // Викликає A::A()
+    B(int a) : A(a) { std::cout << "B::B(int a) \n"; } // Викликає A::A(int)
+    B(int a, int b) : A(a, b) { std::cout << "B::B(int a, int b) \n"; } // Викликає A::A(int, int)
+    B(const B& other) : A(other) { std::cout << "B::B(const B& other) \n"; } // Викликає A::A(const A&)
+    B(B&& other) : A(std::move(other)) { std::cout << "B::B(B&& other)\n"; } // Викликає A::A(A&&)
 };
 
 // Головна функція
@@ -184,13 +190,19 @@ int main()
     std::cout << "Сума: " << sum << std::endl;
 //------------------------
     std::cout << "Створення об'єкта b1 без параметрів:\n";
-    B b1;
+    B b1; // Викликає A::A() та B::B()
 
     std::cout << "\nСтворення об'єкта b2 з одним параметром:\n";
-    B b2(1);
+    B b2(1); // Викликає A::A(int) та B::B(int)
 
     std::cout << "\nСтворення об'єкта b3 з двома параметрами:\n";
-    B b3(1, 2);
+    B b3(1, 2); // Викликає A::A(int, int) та B::B(int, int)
+
+    std::cout << "\nСтворення об'єкта b4 шляхом копіювання b3:\n";
+    B b4(b3); // Викликає A::A(const A&) та B::B(const B&)
+
+    std::cout << "\nСтворення об'єкта b5 шляхом переміщення b3:\n";
+    B b5(std::move(b3)); // Викликає A::A(A&&) та B::B(B&&)
 
     return 0;
 }
