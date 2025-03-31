@@ -1,9 +1,24 @@
 #include <iostream>
 /* -std=c++11 */
 using namespace std;
-/* 00:55:43 - Поліморфізм і конструктори 
-00:57:53 - Поліморфізм і деструктори 
-01:10:48 - Ключове слово override 
+/*
+Поліморфізм і конструктори - для конструкторів ене можна писати ключове слово virtual
+00:57:53 - Поліморфізм і деструктори */
+/* class Base 
+{
+public:
+    Base() { cout << "Base constructor\n"; }
+    virtual ~Base() { cout << "Base destructor\n"; } // ВІРТУАЛЬНИЙ!
+};
+
+class Derived : public Base 
+{
+public:
+    Derived() { cout << "Derived constructor\n"; }
+    ~Derived() { cout << "Derived destructor\n"; }
+};
+ */
+/* 01:10:48 - Ключове слово override 
 01:16:42 - Ключове слово final 
 01:19:40 - Що таке раннє і пізнє зв'язування? 
 01:27:25 - Таблиця віртуальних функцій (vtable) */
@@ -166,6 +181,45 @@ int main()
 
     return 0;
 }
+
+
+/* #include <iostream>
+
+class A {
+public:
+    void UsualMethodA() { std::cout << "I'm usual method A\n"; }
+
+    virtual void Method() { std::cout << "A::Method()\n"; } // Віртуальний метод
+};
+
+class B : public A {
+public:
+    void UsualMethodB() { std::cout << "I'm usual method B\n"; }
+
+    virtual void Method() { std::cout << "B::Method()\n"; } // Перевизначений метод
+};
+
+class C : public B {
+public:
+    void UsualMethodC() { std::cout << "I'm usual method C\n"; }
+
+    virtual void Method() { std::cout << "C::Method()\n"; } // Перевизначений метод
+};
+
+int main() {
+    C objectC;
+    
+    A* ptrA = &objectC; // Покажчик на базовий клас A
+    B* ptrB = &objectC; // Покажчик на клас B
+    C* ptrC = &objectC; // Покажчик на клас C
+
+    std::cout << "Calling Method() through different pointers:\n";
+    ptrA->Method(); // Викличе C::Method()
+    ptrB->Method(); // Викличе C::Method()
+    ptrC->Method(); // Викличе C::Method()
+
+    return 0;
+} */
 
 
 
